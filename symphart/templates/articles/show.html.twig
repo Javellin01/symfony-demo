@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %} SympArt Article {% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.body }}</p>
+    <br>
+    <a href="/">Back</a>
+{% endblock %}
