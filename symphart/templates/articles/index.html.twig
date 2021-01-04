@@ -16,6 +16,7 @@
                 <tr>
                     <td>{{ article.title }}</td>
                     <td><a href="/article/{{ article.id }}" class="btn btn-dark">Open</a></td>
+                    <td><a href="" class="btn btn-danger" onclick="deleteArticle({{ article.id }})">Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -25,3 +26,18 @@
     {% endif %}
     
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        function deleteArticle(id) {
+           if (confirm('Are your sure?')) {
+                fetch(`/article/delete/${id}`,
+                    {
+                        method: 'DELETE'
+                    }).then(res => window.location.reload());
+           }
+        }
+    </script>
+{% endblock %}
+
+
